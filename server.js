@@ -4,7 +4,7 @@ import { Server } from "socket.io";
 const httpsServer = createServer();
 const io = new Server(httpsServer, {
     cors: {
-        origin: "*",
+        origin: "https://app.playclocktower.com",
         credentials: true,
         methods: ["GET", "POST"]
     },
