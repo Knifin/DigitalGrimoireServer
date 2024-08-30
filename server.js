@@ -1,12 +1,7 @@
-import { createServer } from "http";
-import { Server } from "socket.io";
-
-const httpsServer = createServer();
-const io = new Server(httpsServer, {
+const io = require('socket.io')(3000, {
     cors: {
-        origin: "https://app.playclocktower.com",
-        credentials: true,
-        methods: ["GET", "POST"]
+        origin: ['https://app.playclocktower.com'],
+        methods: ["GET"],
     },
 })
 
@@ -28,5 +23,3 @@ io.on('connection', socket => {
         socket.to(playerId).emit('get-role', role);
     });
 });
-
-httpsServer.listen(3000);
