@@ -1,4 +1,8 @@
-const io = require('socket.io')(3000, {
+import { createServer } from "http";
+import { Server } from "socket.io";
+
+const httpsServer = createServer();
+const io = new Server(httpsServer, {
     cors: {
         origin: "*",
         methods: ["GET", "POST"]
@@ -23,3 +27,5 @@ io.on('connection', socket => {
         socket.to(playerId).emit('get-role', role);
     });
 });
+
+httpsServer.listen(3000);
