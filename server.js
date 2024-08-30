@@ -5,6 +5,7 @@ const httpsServer = createServer();
 const io = new Server(httpsServer, {
     cors: {
         origin: "*",
+        credentials: true,
         methods: ["GET", "POST"]
     },
 })
