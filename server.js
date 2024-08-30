@@ -1,7 +1,7 @@
 const io = require('socket.io')(3000, {
     cors: {
-        origin: ['https://app.playclocktower.com', '*'],
-        methods: ["GET"],
+        origin: "*",
+        methods: ["GET", "POST"]
     },
 })
 
