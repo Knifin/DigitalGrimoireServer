@@ -9,7 +9,9 @@ const io = new Server(httpServer, {
     }
 });
 
-io.on('connection', socket => {
+io.on("connection", (socket) => {
+    socket.emit("hello", "Hello World!");
+  
     socket.on('player-join', (lobbyId,playerId,name,pronouns,role) => {
         if (lobbyId !== '') {
             console.log(lobbyId,playerId,name,pronouns,role);
