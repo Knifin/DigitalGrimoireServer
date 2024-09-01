@@ -1,4 +1,4 @@
-const io = require('socket.io')(443, {
+const io = require('socket.io')(3000, {
     cors: {
         origin: "https://app.shinpostudios.com",
         methods: ["GET"],
