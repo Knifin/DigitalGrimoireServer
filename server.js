@@ -3,8 +3,8 @@ const { createServer } = require("https");
 const { Server } = require("socket.io");
 
 const httpsServer = createServer({
-  key: readFileSync("/letsencrypt/certs/current/certificates/joinapp.shinpostudios.com.key"),
-  cert: readFileSync("letsencrypt/certs/current/certificates/joinapp.shinpostudios.com.crt")
+  key: readFileSync("/tls/server.key"),
+  cert: readFileSync("/tls/server.crt")
 });
 
 const io = new Server(httpsServer, {
