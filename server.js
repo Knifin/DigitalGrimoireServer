@@ -1,10 +1,16 @@
-import { createServer } from "http";
+import { createServer } from "https";
+import { readFileSync } from "fs";
 import { Server } from "socket.io";
 
+const httpsServer = createServer({
+  key: readFileSync("/etc/ssl/server.key"),
+  cert: readFileSync("/etc/ssl/server.crt")
+});
+
 const httpServer = createServer();
-const io = new Server(httpServer, {
+const io = new Server(httpsServer, {
   cors: {
-        origin: "http://app.shinpostudios.com",
+        origin: "https://app.shinpostudios.com",
         methods: ["GET"],
     }
 });
@@ -33,4 +39,4 @@ io.on("connection", (socket) => {
     });
 });
 
-httpServer.listen(process.env.PORT || 3000);
+httpsServer.listen(process.env.PORT || 3000);
