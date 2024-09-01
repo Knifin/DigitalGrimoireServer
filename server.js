@@ -3,8 +3,8 @@ const { createServer } = require("https");
 const { Server } = require("socket.io");
 
 const httpsServer = createServer({
-  key: readFileSync("/root/apps/ssh-keys/joinapp.key"),
-  cert: readFileSync("/root/apps/ssh-keys/joinapp.crt")
+  key: readFileSync("/letsencrypt/certs/current/certificates/joinapp.shinpostudios.com.key"),
+  cert: readFileSync("letsencrypt/certs/current/certificates/joinapp.shinpostudios.com.crt")
 });
 
 const io = new Server(httpsServer, {
