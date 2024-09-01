@@ -3,7 +3,7 @@ const io = require('socket.io')(443, {
         origin: "https://app.shinpostudios.com",
         methods: ["GET"],
     },
-})
+});
 
 io.on('connection', socket => {
     socket.on('player-join', (lobbyId,playerId,name,pronouns,role) => {
