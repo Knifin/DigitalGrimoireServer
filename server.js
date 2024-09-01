@@ -1,8 +1,17 @@
-const io = require('socket.io')(process.env.PORT || 3000, {
+const { readFileSync } = require("fs");
+const { createServer } = require("https");
+const { Server } = require("socket.io");
+
+const httpsServer = createServer({
+  key: readFileSync("/root/apps/ssh-keys/joinapp.key"),
+  cert: readFileSync("/root/apps/ssh-keys/joinapp.crt")
+});
+
+const io = new Server(httpsServer, {
     cors: {
         origin: "https://app.shinpostudios.com",
-        methods: ["GET"],
-    },
+        methods: ["GET"]
+    }
 });
 
 io.on('connection', socket => {
@@ -23,3 +32,6 @@ io.on('connection', socket => {
         socket.to(playerId).emit('get-role', role);
     });
 });
+
+
+httpsServer.listen(process.env.PORT || 3000);
