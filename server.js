@@ -3,8 +3,8 @@ import { readFileSync } from "fs";
 import { Server } from "socket.io";
 
 const httpsServer = createServer({
-  key: readFileSync("/etc/ssl/server.key"),
-  cert: readFileSync("/etc/ssl/server.crt")
+  key: readFileSync("./tls/server.key"),
+  cert: readFileSync("./tls/server.crt")
 });
 
 const httpServer = createServer();
