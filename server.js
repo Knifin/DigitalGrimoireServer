@@ -1,6 +1,4 @@
-app.listen(process.env.PORT || 3000);
-
-const io = require('socket.io')(3000, {
+const io = require('socket.io')(443, {
     cors: {
         origin: ['https://app.shinpostudios.com'],
         methods: ["GET"],
