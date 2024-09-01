@@ -1,6 +1,6 @@
 const io = require('socket.io')(443, {
     cors: {
-        origin: ['https://app.shinpostudios.com'],
+        origin: "https://app.shinpostudios.com",
         methods: ["GET"],
     },
 })
