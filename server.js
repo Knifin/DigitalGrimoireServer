@@ -39,4 +39,4 @@ io.on("connection", (socket) => {
     });
 });
 
-httpsServer.listen(process.env.PORT || 3000);
+httpsServer.listen(3000);
