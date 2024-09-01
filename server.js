@@ -1,8 +1,10 @@
-const io = require('socket.io')(process.env.PORT || 3000, {
-    cors: {
+import { createServer } from "http";
+import { Server } from "socket.io";
+
+const httpServer = createServer();
+const io = new Server(httpServer, {
+  cors: {
         origin: "https://app.shinpostudios.com",
-        origin: "https://app.shinpostudios.com",
-        methods: ["GET"],
         methods: ["GET"],
     }
 });
@@ -28,3 +30,5 @@ io.on('connection', socket => {
         socket.to(playerId).emit('get-role', role);
     });
 });
+
+httpServer.listen(process.env.PORT || 3000);
