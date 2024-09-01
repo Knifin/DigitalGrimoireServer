@@ -11,7 +11,8 @@ const httpServer = createServer();
 const io = new Server(httpsServer, {
   cors: {
         origin: "https://app.shinpostudios.com",
-        methods: ["GET"],
+        methods: ["GET", "POST"],
+        credentials: true
     }
 });
 
