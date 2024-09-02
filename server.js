@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { createServer } from "https";
 import { readFileSync } from "fs";
 
@@ -8,9 +9,11 @@ const options = {
 };
 
 const app = express();
-const httpsServer = createServer(options, app);
+app.use(cors());
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
+
+const httpsServer = createServer(options, app);
 
 httpsServer.listen(5000);
