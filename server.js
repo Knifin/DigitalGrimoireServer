@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import { readFileSync } from "fs";
 import { createServer } from "https";
+import { Server } from "socket.io";
 
 const app = express();
 
@@ -11,7 +12,11 @@ let options = {
 };
 
 const httpsServer = createServer(options, app);
-const io = require("socket.io")(httpsServer);
+const io = new Server(httpsServer);
+
+io.on("connection", (socket) => {
+    socket.emit("hello", "Hello World from the server!");
+});
 
 app.use(cors());
 
