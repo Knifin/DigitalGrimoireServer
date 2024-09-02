@@ -41,3 +41,4 @@ io.on("connection", (socket) => {
 });
 
 httpsServer.listen(3000);
+console.log("Server is running.");
