@@ -16,7 +16,7 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-    socket.emit("hello", "Hello World!");
+    socket.emit("hello", "Hello World from joinapp.shinpostudios.com!");
   
     socket.on('player-join', (lobbyId,playerId,name,pronouns,role) => {
         if (lobbyId !== '') {
