@@ -2,9 +2,15 @@ import express from "express";
 import cors from "cors";
 import { createServer } from "https";
 import { Server } from "socket.io";
+import { readFileSync } from "fs";
+
+const options = {
+    key: readFileSync("/app/tls/server.key"),
+    cert: readFileSync("/app/tls/server.crt")
+};
 
 const app = express();
-const httpsServer = createServer(app);
+const httpsServer = createServer(options, app);
 const io = new Server(httpsServer);
 
 io.on("connection", (socket) => {
