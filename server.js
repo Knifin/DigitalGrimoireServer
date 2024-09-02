@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
 
 app.use(cors());
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile('/index.html');
 });
 
 httpsServer.listen(5000);
