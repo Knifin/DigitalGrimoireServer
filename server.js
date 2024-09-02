@@ -21,7 +21,7 @@ io.on("connection", (socket) => {
 app.use(cors());
 
 app.get('/', (req, res) => {
-    res.status(200).send('Welcome to DigitalGrimoire Server');
+    res.sendFile(__dirname + '/index.html');
 })
 
 httpsServer.listen(5000);
