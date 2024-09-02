@@ -1,16 +1,18 @@
-import { createServer } from "http";
-// import { readFileSync } from "fs";
+// import { createServer } from "http";
+import { createServer } from "https";
+import { readFileSync } from "fs";
 import { Server } from "socket.io";
 
-// const httpsServer = createServer({
-//   key: readFileSync("/app/tls/server.key"),
-//   cert: readFileSync("/app/tls/server.crt")
-// });
+const httpServer = createServer({
+  key: readFileSync("/app/tls/server.key"),
+  cert: readFileSync("/app/tls/server.crt")
+});
 
-const httpServer = createServer();
+// const httpServer = createServer();
+
 const io = new Server(httpServer, {
   cors: {
-        origin: "http://app.shinpostudios.com",
+        origin: "https://app.shinpostudios.com",
         methods: ["GET", "POST"]
     }
 });
