@@ -10,9 +10,8 @@ const httpsServer = createServer({
 const httpServer = createServer();
 const io = new Server(httpsServer, {
   cors: {
-        origin: ["https://app.shinpostudios.com", "app.shinpostudios.com"],
-        methods: ["GET", "POST"],
-        credentials: true
+        origin: ["https://app.shinpostudios.com", "app.shinpostudios.com", "http://app.shinpostudios.com"],
+        methods: ["GET", "POST"]
     }
 });
 
