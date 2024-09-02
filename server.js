@@ -24,4 +24,4 @@ app.get('/', (req, res) => {
     res.status(200).send('Welcome to DigitalGrimoire Server');
 })
 
-app.listen(5000);
+httpsServer.listen(5000);
