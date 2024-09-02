@@ -9,11 +9,11 @@ const options = {
 };
 
 const app = express();
+const httpsServer = createServer(app);
+
 app.use(cors());
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
-
-const httpsServer = createServer(app);
 
 httpsServer.listen(5000);
