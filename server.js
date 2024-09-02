@@ -13,7 +13,7 @@ io.on("connection", (socket) => {
 
 app.use(cors());
 app.get('/', (req, res) => {
-    res.sendFile('./index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 httpServer.listen(5000);
