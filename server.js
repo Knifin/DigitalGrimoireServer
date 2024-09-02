@@ -5,7 +5,9 @@ import { readFileSync } from "fs";
 
 const options = {
     key: readFileSync("/app/tls/server.key"),
-    cert: readFileSync("/app/tls/server.crt")
+    cert: readFileSync("/app/tls/server.crt"),
+    ca:
+        [readFileSync("/app/tls/server.letsencrypt.crt"]
 };
 
 const app = express();
