@@ -1,0 +1,13 @@
+{
+  "healthchecks": {
+    "web": [
+        {
+            "type":        "startup",
+            "name":        "port check",
+            "description": "Checking if the app responds to the check.txt endpoint",
+            "port":        "5000",
+            "attempts": 3
+        }
+    ]
+  }
+}
