@@ -12,7 +12,7 @@ const app = express();
 const httpsServer = createServer(options, app);
 app.use(cors());
 app.get('/', (req, res) => {
-    res.sendFile('./index.html');
+    res.send('Hello World!');
 });
 
 httpsServer.listen(5000);
