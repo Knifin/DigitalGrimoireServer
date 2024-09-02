@@ -1,19 +1,16 @@
-import express from "express";
-import cors from "cors";
 import { createServer } from "http";
 import { Server } from "socket.io";
 
-const app = express();
-const httpServer = createServer(app);
-const io = new Server(httpServer);
+const httpServer = createServer();
+const io = new Server(httpServer, {
+    cors: {
+        origin: "https://app.shinpostudios.com",
+        methods: ["GET", "PUT"]
+    }
+});
 
 io.on("connection", (socket) => {
     socket.emit("hello", "Hello World from the Server!");
-});
-
-app.use(cors());
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html');
 });
 
 httpServer.listen(5000);
