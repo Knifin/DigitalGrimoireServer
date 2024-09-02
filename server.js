@@ -1,24 +1,11 @@
-// import { createServer } from "http";
-import { createServer } from "https";
-import { readFileSync } from "fs";
-import { Server } from "socket.io";
+import express from "express";
+import cors from "cors";
 
-// const httpServer = createServer();
+const app = express();
+app.use(cors());
 
-const httpServer = createServer({
-  key: readFileSync("/app/tls/server.key"),
-  cert: readFileSync("/app/tls/server.crt")
-});
+app.get('/', (req, res) => {
+    res.status(200).send('Welcome to DigitalGrimoire Server');
+})
 
-const io = new Server(httpServer, {
-  cors: {
-        origin: "https://app.shinpostudios.com",
-        methods: ["GET"]
-  }
-});
-
-io.on("connection", (socket) => {
-    socket.emit("hello", "Hello World from joinapp.shinpostudios.com!");
-});
-
-httpServer.listen(5000);
+app.listen(5000);
