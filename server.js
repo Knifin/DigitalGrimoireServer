@@ -22,8 +22,8 @@ app.get('/', (req,res) => {
     res.sendFile('/app/public/index.html');
 });
 
-app.get('/role/:roleId/lobby:lobbyId', (req,res) => {
-    res.sendFile('/app/public/index.html?role=' + req.params.roleId + '&lobby=' + req.params.lobbyId);
+app.get('/:role/:lobby', (req,res) => {
+    res.sendFile('/app/public/index.html?roleId=' + req.params.role + '&lobbyId=' + req.params.lobby);
 });
 
 app.get('/style.css', (req,res) => {
