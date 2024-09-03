@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
 });
 
 app.get('/', (req,res) => {
-    res.sendFile(__dirname + '/public/index.html');
+    res.send('Hello World!');
 });
 
 httpServer.listen(process.env.PORT || 5000);
