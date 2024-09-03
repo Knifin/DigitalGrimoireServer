@@ -55,7 +55,7 @@
 <script>
     const parameters = new URLSearchParams(window.location.search);
     const urlLobbyId = parameters.get('lobbyId');
-    const urlRole = parameters.get('roleId');
+    const urlRoleId = parameters.get('roleId');
 
     if (urlLobbyId !== '') {
         $('#inputGameSessionId').val(urlLobbyId);
@@ -63,9 +63,12 @@
 
     if (urlRole === '') {
         $('#inputRole').val('imp');
+    } else {
+        $('#inputRole').val(urlRoleId);
     }
 
     const socket = io(process.env.WEBSOCKET_SERVER_URL);
+    
     $('#joinButton').on('click', function () {
         const name = $('#inputName').val();
         const pronouns = $('#inputPronouns').val();
