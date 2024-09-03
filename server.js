@@ -22,4 +22,8 @@ app.get('/', (req,res) => {
     res.sendFile('/app/public/index.html');
 });
 
+app.get('/style.css', (req,res) => {
+    res.sendFile('/app/public/style.css');
+});
+
 httpServer.listen(process.env.PORT || 5000);
