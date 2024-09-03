@@ -55,7 +55,7 @@
 <script>
     const parameters = new URLSearchParams(window.location.search);
     const urlLobbyId = parameters.get('lobbyId');
-    const urlRole = parameters.get('role');
+    const urlRole = parameters.get('roleId');
 
     if (urlLobbyId !== '') {
         $('#inputGameSessionId').val(urlLobbyId);
