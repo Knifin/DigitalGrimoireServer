@@ -8,7 +8,7 @@ app.use(cors());
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
     cors: {
-        origin: '*',
+        origin: process.env.CLIENT_URL,
         methods: ["GET", "PUT"],
         credentials: true
     }
