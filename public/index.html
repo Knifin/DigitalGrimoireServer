@@ -67,7 +67,7 @@
         $('#inputRole').val(urlRoleId);
     }
 
-    const socket = io('https://joinapp.playclocktower.com');
+    const socket = io('https://joinapp.shinpostudios.com');
     
     $('#joinButton').on('click', function () {
         const name = $('#inputName').val();
@@ -75,9 +75,6 @@
         const role = $('#inputRole').val();
         const lobbyId = $('#inputGameSessionId').val();
         const playerId = socket.id;
-
-        console.log(role);
-
         socket.emit('join-lobby', lobbyId);
         socket.emit('player-join', lobbyId, playerId, name, pronouns, role);
     });
