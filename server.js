@@ -16,6 +16,12 @@ const io = new Server(httpServer, {
 
 io.on("connection", (socket) => {
     socket.emit("hello", "Hello World from the Server!");
+
+    socket.on('player-join', (lobbyId,playerId,name,pronouns,role) => {
+        if (lobbyId !== '') {
+            socket.to(lobbyId).emit('player-join-info', {lobbyId,playerId,name,pronouns,role});
+        }
+    });
 });
 
 app.get('/', (req,res) => {
