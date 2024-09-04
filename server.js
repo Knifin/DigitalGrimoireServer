@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
 
     socket.on('player-join', (lobbyId,playerId,name,pronouns,role) => {
         if (lobbyId !== '') {
-            socket.to(lobbyId).emit('player-join-info', {lobbyId,playerId,name,pronouns,role});
+            socket.to(lobbyId).emit('player-join-info', {lobbyId,playerId,name,pronouns,role.toLowerCase()});
         }
     });
 
