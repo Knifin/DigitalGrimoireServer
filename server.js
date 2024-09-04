@@ -25,7 +25,7 @@ io.on("connection", (socket) => {
 
     socket.on('join-lobby', (lobbyId) => {
         socket.join(lobbyId);
-    };
+    });
 });
 
 app.get('/', (req,res) => {
