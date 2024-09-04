@@ -22,6 +22,10 @@ io.on("connection", (socket) => {
             socket.to(lobbyId).emit('player-join-info', {lobbyId,playerId,name,pronouns,role});
         }
     });
+
+    socket.on('join-lobby', (lobbyId) => {
+        socket.join(lobbyId);
+    };
 });
 
 app.get('/', (req,res) => {
