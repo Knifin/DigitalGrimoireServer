@@ -42,7 +42,7 @@
     </div>
     <div class="form-group row">
         <label for="inputGameSessionId" class="sr-only">Game Session ID</label>
-        <input type="text" id="inputGameSessionId" class="form-control" placeholder="12345678" required autocorrect="off" spellcheck="false" autocomplete="off">
+        <input type="text" id="inputGameSessionId" class="form-control" required autocorrect="off" spellcheck="false" autocomplete="off" value="42">
     </div>
     <div class="form-group row">
         <input type="text" id="inputRole" class="form-control" required value="imp">
@@ -61,7 +61,7 @@
         $('#inputGameSessionId').val(urlLobbyId);
     }
 
-    if (urlRoleId === '') {
+    if (urlRoleId === '' || urlRoleId === undefined) {
         $('#inputRole').val('imp');
     } else {
         $('#inputRole').val(urlRoleId);
