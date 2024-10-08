@@ -41,6 +41,11 @@
         <input type="text" id="inputPronouns" class="form-control" placeholder="Pronouns" required autocorrect="off" spellcheck="false" autocomplete="off">
     </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit" id="joinButton">Join Game</button>
+    <div class="row invisible" id="status">
+        <p>
+            You've joined the game!
+        </p>
+    </div>
     <div class="form-group row invisible">
         <label for="inputGameSessionId" class="sr-only">Game Session ID</label>
         <input type="text" id="inputGameSessionId" class="form-control" required autocorrect="off" spellcheck="false" autocomplete="off" value="42">
@@ -77,6 +82,9 @@
         const playerId = socket.id;
         socket.emit('join-lobby', lobbyId);
         socket.emit('player-join', lobbyId, playerId, name, pronouns, role);
+
+        $('#joinButton').addClass('invisible');
+        $('#status').removeClass('invisible');
     });
 </script>
 </body>
